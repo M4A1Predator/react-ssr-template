@@ -13,7 +13,7 @@ const clientConfig = {
         filename: 'bundle.js',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -31,7 +31,7 @@ const clientConfig = {
             },
             {
                 test: /\.css$/,
-                loaders: [
+                use: [
                     'style-loader',
                     // 'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
                     'css-loader'
@@ -56,7 +56,7 @@ const serverConfig = {
     target: 'node',
     externals: nodeExternals(),
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -74,7 +74,7 @@ const serverConfig = {
             },
             {
                 test: /\.css$/,
-                loaders: [
+                use: [
                     // 'style-loader',
                     'css-loader'
                     // 'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
